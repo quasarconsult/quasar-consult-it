@@ -26,7 +26,7 @@ export const IMG = {
   itservice: U('1580894894513-541e068a3e2b'),
   roadsafety: U('1582849960485-69f186a876ea'),
   logistics: U('1606964212858-c215029db704'),
-  integrated: U('1758876203195-69a51e4145f0'),
+  integrated: U('1538390416079-c89a38c8db42'),
 };
 
 export const SITE = {
