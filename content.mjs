@@ -40,7 +40,7 @@ export const SITE = {
     { label: 'Chi siamo', href: 'about.html' },
     { label: 'Contatti', href: 'contact.html' },
   ],
-  standards: ['ISO 9001', 'ISO 14001', 'ISO 45001', 'ISO 27001', 'EN 1090', 'ISO 3834', 'Marcatura CE', 'FPC'],
+  standards: ['ISO 9001', 'ISO 14001', 'ISO 45001', 'ISO 27001', 'EN 1090', 'ISO 3834', 'Marcatura CE', 'FPC', 'ISO 20000-1', 'HACCP', 'ISO 13485', 'ISO 39001', 'ISO 37001', 'PAS 99', 'ISO 50001', 'ISO 28001'],
   contact: { email: null, phone: null, address: null, piva: null },
   ui: {
     navCta: 'Richiedi una valutazione',
