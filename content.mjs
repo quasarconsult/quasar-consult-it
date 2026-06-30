@@ -26,6 +26,7 @@ export const IMG = {
   itservice: U('1580894894513-541e068a3e2b'),
   roadsafety: U('1582849960485-69f186a876ea'),
   logistics: U('1606964212858-c215029db704'),
+  integrated: U('1758876203195-69a51e4145f0'),
 };
 
 export const SITE = {
@@ -490,7 +491,7 @@ export const CERTS = [
   },
   {
     slug: 'pas-99', code: 'PAS 99:2012', name: 'PAS 99 — Sistemi Integrati',
-    image: IMG.abstract,
+    image: IMG.integrated,
     promise: 'Gestisci i tuoi standard come un unico sistema, non tre che si fanno concorrenza.',
     intro: 'Se possiedi più certificazioni di sistemi di gestione — qualità, ambiente, sicurezza, energia — gestirle separatamente duplica il lavoro e crea contraddizioni. La PAS 99 è la specifica per integrarle in un unico sistema di gestione coerente.',
     tags: ['Multi-certificati', 'Manifattura', 'Edilizia', 'Servizi'],
@@ -539,13 +540,13 @@ export const CERTS = [
     ] },
   },
   {
-    slug: 'iso-28001', code: 'ISO 28001:2007', name: 'ISO 28001 — Sicurezza della Supply Chain',
+    slug: 'iso-28001', code: 'ISO 28001:2007', name: 'ISO 28001 — Sicurezza della Catena di Fornitura',
     image: IMG.logistics,
     promise: 'Proteggi la tua filiera da interruzioni, manomissioni e perdite — e dimostralo ai partner.',
-    intro: 'Le filiere globali affrontano furti, manomissioni, contrabbando e interruzioni. La ISO 28001 definisce le buone pratiche per implementare la sicurezza della supply chain, aiutandoti a valutare le minacce, applicare controlli e dimostrare la sicurezza a clienti, partner e programmi doganali.',
+    intro: 'Le filiere globali affrontano furti, manomissioni, contrabbando e interruzioni. La ISO 28001 definisce le buone pratiche per implementare la sicurezza della catena di fornitura, aiutandoti a valutare le minacce, applicare controlli e dimostrare la sicurezza a clienti, partner e programmi doganali.',
     tags: ['Logistica e spedizioni', 'Manifattura', 'Import / export', 'Porti e trasporti'],
     sections: [
-      { h: 'Che cos’è', p: 'Uno standard di buone pratiche per la sicurezza nella supply chain internazionale: individuare le minacce alla sicurezza, valutarne il rischio e mettere in atto e documentare contromisure lungo il movimento delle merci.' },
+      { h: 'Che cos’è', p: 'Uno standard di buone pratiche per la sicurezza nella catena di fornitura internazionale: individuare le minacce alla sicurezza, valutarne il rischio e mettere in atto e documentare contromisure lungo il movimento delle merci.' },
       { h: 'Che cosa richiede', list: [
         'Un perimetro definito della filiera protetta',
         'Una valutazione del rischio rispetto a minacce credibili',
