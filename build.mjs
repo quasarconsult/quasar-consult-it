@@ -87,7 +87,7 @@ function footer() {
         <div>
           <span class="brand">${brandLockup(true)}</span>
           <p class="footer-tag">${SITE.tagline}. ${f.tagSuffix}</p>
-          <p class="footer-contact"><a href="tel:+393457677813">+39 345 7677813</a><br><a href="mailto:contatti@quasar-consulting.com">contatti@quasar-consulting.com</a></p>
+          <p class="footer-contact"><a href="tel:+393457677813">+39 345 7677813</a> (Italia)<br><a href="tel:+441615150088">+44 161 515 0088</a> (Regno Unito)<br><a href="mailto:contatti@quasar-consulting.com">contatti@quasar-consulting.com</a></p>
         </div>
         <div class="footer-col"><h5>${f.certs}</h5>${certLinks}</div>
         <div class="footer-col"><h5>${f.company}</h5>${navLinks}</div>
@@ -391,7 +391,8 @@ function renderContact() {
       <div class="aside-card" style="position:static">
         <h4>${f.asideTitle}</h4>
         <ul>${f.aside.map(i => `<li>${tick()}<span>${i}</span></li>`).join('')}</ul>
-        <p class="contact-line" style="margin-top:1.4rem"><a href="tel:+393457677813">+39 345 7677813</a></p>
+        <p class="contact-line" style="margin-top:1.4rem"><a href="tel:+393457677813">+39 345 7677813</a> (Italia)</p>
+        <p class="contact-line"><a href="tel:+441615150088">+44 161 515 0088</a> (Regno Unito)</p>
         <p class="contact-line"><a href="mailto:contatti@quasar-consulting.com">contatti@quasar-consulting.com</a></p>
         <p class="contact-line" style="font-weight:500">Sede italiana: Bergamo</p>
         <p style="margin-top:.8rem;color:var(--ink-soft);font-size:.92rem">${f.detailsNote}</p>
