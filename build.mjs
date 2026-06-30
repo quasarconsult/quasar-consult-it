@@ -87,7 +87,7 @@ function footer() {
         <div>
           <span class="brand">${brandLockup(true)}</span>
           <p class="footer-tag">${SITE.tagline}. ${f.tagSuffix}</p>
-          <p class="footer-contact"><a href="tel:+393457677813">+39 345 7677813</a><br><a href="mailto:contatti@quasar-consulting.com">contatti@quasar-consulting.com</a><br>Bergamo, Italia</p>
+          <p class="footer-contact"><a href="tel:+393457677813">+39 345 7677813</a><br><a href="mailto:contatti@quasar-consulting.com">contatti@quasar-consulting.com</a></p>
         </div>
         <div class="footer-col"><h5>${f.certs}</h5>${certLinks}</div>
         <div class="footer-col"><h5>${f.company}</h5>${navLinks}</div>
@@ -98,6 +98,7 @@ function footer() {
         </div>
       </div>
       <p class="footer-note">Le certificazioni sono rilasciate da organismi di certificazione accreditati (in Italia da ACCREDIA), riconosciuti a livello internazionale tramite il sistema di accreditamento internazionale (oggi Global ACI, già IAF/ILAC). Quasar è una società di consulenza, non un organismo di certificazione.</p>
+      <p class="footer-note">${LEGAL.controller.name}, registrata in ${LEGAL.controller.registeredIn} (n. ${LEGAL.controller.companyNo}). Sede legale: ${LEGAL.controller.address}.<br>Sede italiana: ${LEGAL.controller.italianOffice}</p>
       <div class="footer-bottom">
         <span>© ${year} ${SITE.brand}. ${f.rights}</span>
         <span class="footer-legal"><a href="privacy.html">Privacy</a> · <a href="cookies.html">Cookie Policy</a></span>
@@ -392,7 +393,7 @@ function renderContact() {
         <ul>${f.aside.map(i => `<li>${tick()}<span>${i}</span></li>`).join('')}</ul>
         <p class="contact-line" style="margin-top:1.4rem"><a href="tel:+393457677813">+39 345 7677813</a></p>
         <p class="contact-line"><a href="mailto:contatti@quasar-consulting.com">contatti@quasar-consulting.com</a></p>
-        <p class="contact-line" style="font-weight:500">Bergamo, Italia</p>
+        <p class="contact-line" style="font-weight:500">Sede italiana: Bergamo</p>
         <p style="margin-top:.8rem;color:var(--ink-soft);font-size:.92rem">${f.detailsNote}</p>
       </div>
     </aside>
@@ -418,7 +419,7 @@ function renderLegal(doc, slug) {
     <p class="legal-updated">Ultimo aggiornamento: ${LEGAL.updated}</p>
     ${secs}
     <h2>Titolare del trattamento</h2>
-    <p>${e.name} (marchio “${e.brand}”)<br>${e.address}<br>P.IVA ${e.vat} · Reg. ${e.registry}<br>PEC: ${e.pec} · Email: ${e.email}</p>
+    <p>${e.name} (marchio “${e.brand}”)<br>Società registrata in ${e.registeredIn}, n. ${e.companyNo}<br>Sede legale: ${e.address}<br>Sede italiana: ${e.italianOffice}<br>Email: ${e.email}</p>
   </div></div></section>`;
   return layout({ title: `${doc.title} — ${SITE.brand}`, desc: doc.lead, current: slug, body });
 }
