@@ -1,0 +1,6 @@
+# build / deploy artifacts (not needed in the repo)
+dist/
+*.tgz
+*.zip
+node_modules/
+.DS_Store
