@@ -89,7 +89,7 @@ function footer() {
           <p class="footer-tag">${SITE.tagline}. ${f.tagSuffix}</p>
           <p class="footer-contact"><a href="tel:+393457677813">+39 345 7677813</a> (Italia)<br><a href="tel:+441615150088">+44 161 515 0088</a> (Regno Unito)<br><a href="mailto:contatti@quasar-consulting.com">contatti@quasar-consulting.com</a></p>
         </div>
-        <div class="footer-col"><h5>${f.certs}</h5>${certLinks}</div>
+        <div class="footer-col footer-col--certs"><h5>${f.certs}</h5><div class="cert-links-2">${certLinks}</div></div>
         <div class="footer-col"><h5>${f.company}</h5>${navLinks}</div>
         <div class="footer-col"><h5>${f.start}</h5>
           <a href="contact.html">${f.bookAssessment}</a>
