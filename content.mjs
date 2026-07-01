@@ -34,6 +34,7 @@ export const SITE = {
   brandMark: ['Q', 'uasar'],
   tagline: 'Conformità, Certificazione e Crescita Aziendale',
   lang: 'it',
+  url: 'https://quasar-consulting.com',
   nav: [
     { label: 'Certificazioni', href: 'services.html' },
     { label: 'Settori', href: 'industries.html' },

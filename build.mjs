@@ -107,7 +107,22 @@ function footer() {
   </footer>`;
 }
 
-function layout({ title, desc, current, body }) {
+function layout({ title, desc, current, body, pageFile }) {
+  const file = pageFile || current;
+  const path = file === 'index.html' ? '/' : '/' + file.replace(/\.html$/, '');
+  const canonical = SITE.url + path;
+  const ogImage = SITE.url + '/assets/og-image.png';
+  const orgLd = current === 'index.html' ? `\n<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'ProfessionalService',
+    name: SITE.brand, legalName: LEGAL.controller.name, url: SITE.url,
+    logo: SITE.url + '/assets/quasar-q.webp', image: ogImage,
+    description: 'Consulenza per certificazioni ISO ed EN e crescita aziendale: ISO 9001, 14001, 45001, 27001, EN 1090, ISO 3834, Marcatura CE, HACCP e altre. Sede italiana a Bergamo.',
+    email: LEGAL.controller.email, telephone: '+393457677813',
+    address: { '@type': 'PostalAddress', addressLocality: 'Bergamo', addressCountry: 'IT' },
+    areaServed: 'Italia',
+    knowsAbout: ['ISO 9001', 'ISO 14001', 'ISO 45001', 'ISO 27001', 'EN 1090', 'ISO 3834', 'Marcatura CE', 'ISO 20000-1', 'HACCP', 'ISO 13485', 'ISO 39001', 'ISO 37001', 'PAS 99', 'ISO 50001', 'ISO 28001'],
+    inLanguage: 'it',
+  })}</script>` : '';
   return `<!doctype html>
 <html lang="${SITE.lang}">
 <head>
@@ -115,12 +130,24 @@ function layout({ title, desc, current, body }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
 <meta name="description" content="${desc}">
+<link rel="canonical" href="${canonical}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${SITE.brand}">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:image" content="${ogImage}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${desc}">
+<meta name="twitter:image" content="${ogImage}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=${ASSET_VER}">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png?v=${ASSET_VER}">
 <link rel="stylesheet" href="${FONTS}">
-<link rel="stylesheet" href="assets/style.css?v=${ASSET_VER}">
+<link rel="stylesheet" href="assets/style.css?v=${ASSET_VER}">${orgLd}
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
@@ -272,7 +299,7 @@ function renderCert(c) {
   </div></section>
 
   ${ctaBand({ title: c.ctaTitle || `${UI.certCtaTitlePre}${short(c)}?`, p: UI.certCtaText })}`;
-  return layout({ title: `${short(c)} — ${SITE.brand}`, desc: `${short(c)}: ${c.promise}`, current: 'services.html', body });
+  return layout({ title: `${short(c)} — ${SITE.brand}`, desc: `${short(c)}: ${c.promise}`, current: 'services.html', pageFile: `${c.slug}.html`, body });
 }
 
 function renderServices() {
@@ -436,6 +463,13 @@ const pages = {
   'cookies.html': renderLegal(LEGAL.cookies, 'cookies.html'),
 };
 for (const c of CERTS) pages[`${c.slug}.html`] = renderCert(c);
+
+const sitemapUrls = Object.keys(pages).map(f => {
+  const p = f === 'index.html' ? '/' : '/' + f.replace(/\.html$/, '');
+  return `  <url><loc>${SITE.url}${p}</loc></url>`;
+}).join('\n');
+pages['sitemap.xml'] = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`;
+pages['robots.txt'] = `User-agent: *\nAllow: /\n\nSitemap: ${SITE.url}/sitemap.xml\n`;
 
 let n = 0;
 for (const [file, html] of Object.entries(pages)) { writeFileSync(join(OUT, file), html, 'utf8'); n++; }
